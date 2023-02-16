@@ -1,0 +1,11 @@
+extends ../layout.pug
+block content
+    h1 All courses
+    .course-grid
+        each course in courses
+            .course-card
+                img(src=course.image)
+                h3=course.title
+                p=course.description
+                span.price=course.price
+

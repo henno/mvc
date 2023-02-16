@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const port = 3000
 const path = require('path');
+const CoursesController = require('./controllers/CoursesController');
 
 // Fake user
 app.use(function (req, res, next) {
@@ -93,8 +94,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
     // Redirect to courses
-    res.render('layout')
+    res.redirect('/courses')
 })
+
+app.get('/courses', CoursesController.index);
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
